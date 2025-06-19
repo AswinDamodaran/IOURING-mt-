@@ -13,8 +13,11 @@ function ListPage() {
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
   const [isAddMode, setIsAddMode] = useState(false);
+  const [username, setUsername] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const getPosts = async () => {
+    setLoading(true);
     try {
       const response = await axios.get(
         "https://jsonplaceholder.typicode.com/posts"
@@ -22,6 +25,8 @@ function ListPage() {
       setPosts(response.data);
     } catch (error) {
       console.error("Error fetching posts", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -72,17 +77,22 @@ function ListPage() {
   };
 
   useEffect(() => {
+    const storedUsername = localStorage.getItem("username") || "";
+
+    setUsername(storedUsername);
     getPosts();
   }, []);
 
   return (
     <div>
-      <Header />
+      <Header username={username} />
       <AddSection onAddClick={openAddModal} />
+      
       <Listview
         posts={posts}
         onDelete={handleDelete}
         onUpdate={setEditingPost}
+        loading={loading}
       />
       <Footer />
 

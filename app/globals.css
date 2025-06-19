@@ -24,34 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 } */
-@theme  {
+@theme {
   --color-background: var(--background);
   --color-border: var(--border);
   --color-text: var(--text);
   --color-btntext: var(--btntext);
-  --color-button: #0096FF;
+  --color-button: #0096ff;
   --color-btnhover: var(--btnhover);
-  --color-loginbg:var(--loginbg);
-  --color-subbg:var(--subbg);
+  --color-loginbg: var(--loginbg);
+  --color-subbg: var(--subbg);
+  --color-text2:var(--text2);
 }
 
-:root {      
-  --border: oklch(0.922 0 0);          
-  --text: #111827;            
+:root {
+  --background: white;
+  --border: oklch(0.922 0 0);
+  --text: #111827;
   /* --button: #0096FF;          */
-  --btnhover: #374151;        
-  --btntext: #ffffff;         
-  --loginbg: #111827;         
-  --subbg: #f3f4f6; 
+  --btnhover: #374151;
+  --btntext: #ffffff;
+  --loginbg: #111827;
+  --subbg: #d6eaf8;
+  --text2: #111827;
 }
 
 .dark {
-  --background: #0f1112;   
-  --border: oklch(1 0 0 / 10%);       
-  --text: #f9fafb;             
+  --background: #0f1112;
+  --border: oklch(1 0 0 / 10%);
+  --text: #f9fafb;
   /* --button: #f3f4f6;            */
-  --btnhover: #e5e7eb;       
-  --btntext: #111827;         
-  --loginbg: #1f2937;          
-  --subbg: #232526;  
+  --btnhover: #e5e7eb;
+  --btntext: #111827;
+  --loginbg: #1f2937;
+  --subbg: #232526;
+  --text2: #f9fafb;
 }

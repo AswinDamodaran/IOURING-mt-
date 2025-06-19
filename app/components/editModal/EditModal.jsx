@@ -53,7 +53,7 @@ function EditModal({ post, isOpen, onClose, onSave, isAddMode = false }) {
         />
         <div className="flex justify-end gap-2">
           <button
-            className="px-4 py-2 bg-gray-800 border-2 border-subbg hover:border-button text-text rounded-lg"
+            className=" bg-background px-4 py-2 bg- border-2 border-subbg hover:border-button text-text rounded-lg"
             onClick={onClose}
           >
             Cancel

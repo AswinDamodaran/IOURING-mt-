@@ -22,9 +22,11 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+{
   return (
-    <html lang="en" className="dark bg-background">
+    <html lang="en" className="bg-background">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

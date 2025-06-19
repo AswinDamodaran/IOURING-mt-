@@ -14,7 +14,7 @@ function Header({ username }) {
   return (
     <nav className="bg-background border-b-2 border-border text-text">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-1">
-        {/* Logo */}
+      
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/globe.svg" className="h-8" alt="test Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap text-text">
@@ -22,7 +22,7 @@ function Header({ username }) {
           </span>
         </a>
 
-        {/* Mobile view: Darkmode + Toggle */}
+      
         <div className="flex items-center gap-2 md:hidden">
           <Darkmode />
           <button
@@ -41,7 +41,7 @@ function Header({ username }) {
           </button>
         </div>
 
-        {/* Desktop view */}
+       
         <div className="hidden md:flex items-center gap-4">
           <Darkmode />
           <img
@@ -58,7 +58,7 @@ function Header({ username }) {
         </div>
       </div>
 
-      {/* Mobile dropdown */}
+     
       {isOpen && (
         <div
           id="profile-box"

@@ -6,10 +6,32 @@ import Darkmode from "../darkmodebtn/Darkmode";
 
 function Login() {
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
+  const [errorUsr, setErrorUsr] = useState(false);
+  const [errorPsw, setErrorPsw] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    let hasError = false;
+
+    if (username.trim() === "") {
+      setErrorUsr(true);
+      hasError = true;
+    } else {
+      setErrorUsr(false);
+    }
+
+    if (password.trim() === "") {
+      setErrorPsw(true);
+      hasError = true;
+    } else {
+      setErrorPsw(false);
+    }
+
+    if (hasError) return; 
+
     localStorage.setItem("username", username);
     router.push("/listpage");
   };
@@ -45,9 +67,14 @@ function Login() {
                   id="username"
                   className="bg-background border border-gray-300 text-text rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400  dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   placeholder="username"
-                  required
+                 
                   onChange={(e) => setUsername(e.target.value)}
                 />
+                {errorUsr && (
+                  <p className="text-xs text-red-500 mt-0.5">
+                    Username is required.
+                  </p>
+                )}
               </div>
               <div>
                 <label
@@ -61,9 +88,14 @@ function Login() {
                   name="password"
                   id="password"
                   placeholder="••••••••"
-                  className="bg-background border border-gray-300 text-text rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="bg-background border shadow-none  border-gray-300 text-text rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 />
+                {errorPsw && (
+                  <p className="text-xs text-red-500 mt-0.5">
+                    Password is required.
+                  </p>
+                )}
               </div>
               <div className="flex items-center justify-between">
                 <a
